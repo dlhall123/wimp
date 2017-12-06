@@ -23,6 +23,9 @@ public class Actor {
 	private Long activeSinceYear;
 	private Date birthDate;
 
+	public Actor() {
+	}
+
 	public Actor(String firstName, String lastName, Long activeSinceYear, Date birthDate) {
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -60,6 +63,14 @@ public class Actor {
 
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 }

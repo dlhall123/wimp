@@ -24,6 +24,9 @@ public class Movie {
 	@Column(length = 500, nullable = false)
 	private String distributor;
 
+	public Movie() {
+	}
+
 	public Movie(String title, Date releaseDate, Long budget, String distributor) {
 		this.title = title;
 		this.releaseDate = releaseDate;
