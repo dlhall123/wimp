@@ -16,10 +16,10 @@ import com.lmig.gfc.wimp.services.MovieRepository;
 
 @RestController
 @RequestMapping("/api/movies")
-public class MovieApiController {
+public class MoviesApiController {
 	MovieRepository movieRepo;
 
-	public MovieApiController(MovieRepository mr) {
+	public MoviesApiController(MovieRepository mr) {
 		movieRepo = mr;
 	}
 

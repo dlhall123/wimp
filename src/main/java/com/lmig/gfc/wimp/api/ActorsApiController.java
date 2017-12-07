@@ -16,10 +16,10 @@ import com.lmig.gfc.wimp.services.ActorRepository;
 
 @RestController
 @RequestMapping("/api/actors")
-public class ActorApiController {
+public class ActorsApiController {
 	private ActorRepository actorRepo;
 
-	public ActorApiController(ActorRepository a) {
+	public ActorsApiController(ActorRepository a) {
 		actorRepo = a;
 	}
 
@@ -39,7 +39,7 @@ public class ActorApiController {
 		return actorRepo.save(actor);
 	}
 
-	@PutMapping("")
+	@PutMapping("{id}")
 	public Actor update(@PathVariable Long id, @RequestBody Actor actor) {
 		actor.setId(id);
 		return actorRepo.save(actor);
