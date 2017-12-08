@@ -1,5 +1,6 @@
 package com.lmig.gfc.wimp.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,13 +25,22 @@ public class ActorsApiController {
 	}
 
 	@GetMapping("")
-	public List<Actor> getAll() {
-		return actorRepo.findAll();
+	public List<ActorView> getAll() {
+		ArrayList<ActorView> av = new ArrayList<ActorView>();
+		for (Actor actor : actorRepo.findAll()) {
+			av.add(new ActorView(actor));
+		}
+		return av;
+
+		// return actorRepo.findAll();
 	}
 
 	@GetMapping("{id}")
-	public Actor getOne(@PathVariable Long id) {
-		return actorRepo.findOne(id);
+	public ActorView getOne(@PathVariable Long id) {
+		ActorView av = new ActorView(actorRepo.findOne(id));
+		return av;
+
+		// return actorRepo.findOne(id);
 
 	}
 
