@@ -31,16 +31,16 @@ public class ActorsApiController {
 			av.add(new ActorView(actor));
 		}
 		return av;
-
-		// return actorRepo.findAll();
 	}
 
 	@GetMapping("{id}")
 	public ActorView getOne(@PathVariable Long id) {
-		ActorView av = new ActorView(actorRepo.findOne(id));
+		ActorView av = null;
+		Actor actor = actorRepo.findOne(id);
+		if (actor != null) {
+			av = new ActorView(actor);
+		}
 		return av;
-
-		// return actorRepo.findOne(id);
 
 	}
 
@@ -57,7 +57,7 @@ public class ActorsApiController {
 
 	@DeleteMapping("{id}")
 	public Actor delete(@PathVariable Long id) {
-		Actor actor = actorRepo.getOne(id);
+		Actor actor = actorRepo.findOne(id);
 		actorRepo.delete(id);
 		return actor;
 
