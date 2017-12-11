@@ -91,7 +91,7 @@ public class MoviesApiControllerTests {
 	public void delete_deletes_movie_returns_deleted_movie() {
 		// Arrange
 		Movie movie = new Movie();
-		when(movieRepo.getOne(1L)).thenReturn(movie);
+		when(movieRepo.findOne(1L)).thenReturn(movie);
 
 		// Act
 		Movie actual = controller.delete(1L);
@@ -99,7 +99,7 @@ public class MoviesApiControllerTests {
 		// Assert
 		assertThat(actual).isSameAs(movie);
 		verify(movieRepo).delete(1L);
-		verify(movieRepo).getOne(1L);
+		verify(movieRepo).findOne(1L);
 
 	}
 

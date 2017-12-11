@@ -46,7 +46,7 @@ public class MoviesApiController {
 
 	@DeleteMapping("{id}")
 	public Movie delete(@PathVariable Long id) {
-		Movie deleted = movieRepo.getOne(id);
+		Movie deleted = movieRepo.findOne(id);
 		movieRepo.delete(id);
 		return deleted;
 	}
