@@ -58,6 +58,8 @@ public class ActorsApiController {
 	@DeleteMapping("{id}")
 	public Actor delete(@PathVariable Long id) {
 		Actor actor = actorRepo.findOne(id);
+		// This call accesses the db and creates a session so the actor can return
+		// actor.getAwards().contains(null);
 		actorRepo.delete(id);
 		return actor;
 
