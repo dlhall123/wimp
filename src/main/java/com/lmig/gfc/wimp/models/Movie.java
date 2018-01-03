@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Movie {
 
@@ -25,6 +27,7 @@ public class Movie {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Actor> actors;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
 	private Date releaseDate;
 	private Long budget;
 

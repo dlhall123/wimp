@@ -2,6 +2,7 @@ package com.lmig.gfc.wimp.api;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.lmig.gfc.wimp.models.Movie;
 import com.lmig.gfc.wimp.services.MovieRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/movies")
 public class MoviesApiController {
 	MovieRepository movieRepo;
@@ -35,6 +37,7 @@ public class MoviesApiController {
 
 	@PostMapping("")
 	public Movie create(@RequestBody Movie movie) {
+		System.out.println(movie.getReleaseDate());
 		return movieRepo.save(movie);
 	}
 

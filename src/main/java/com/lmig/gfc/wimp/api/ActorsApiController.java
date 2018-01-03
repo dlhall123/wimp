@@ -3,6 +3,7 @@ package com.lmig.gfc.wimp.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.lmig.gfc.wimp.models.Actor;
 import com.lmig.gfc.wimp.services.ActorRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/actors")
 public class ActorsApiController {
 	private ActorRepository actorRepo;

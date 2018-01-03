@@ -5,12 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -20,7 +22,7 @@ public class Actor {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@OneToMany(mappedBy = "actor")
+	@OneToMany(mappedBy = "actor", fetch = FetchType.EAGER)
 	private List<Award> awards;
 
 	@ManyToMany(mappedBy = "actors")
@@ -33,6 +35,7 @@ public class Actor {
 	@Column(length = 75)
 	private String lastName;
 	private Long activeSinceYear;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy")
 	private Date birthDate;
 
 	public Actor() {
