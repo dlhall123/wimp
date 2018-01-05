@@ -26,9 +26,8 @@ public class ActorsInMoviesApiController {
 	}
 
 	@PostMapping("")
-	public Movie create(@PathVariable Long movieId, @RequestBody Long actorId) {
+	public Movie create(@PathVariable Long movieId, @RequestBody Actor actor) {
 		Movie movie = mr.findOne(movieId);
-		Actor actor = ar.findOne(actorId);
 		movie.getActors().add(actor);
 		mr.save(movie);
 		return movie;
