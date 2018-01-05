@@ -1,5 +1,6 @@
 package com.lmig.gfc.wimp.api;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import com.lmig.gfc.wimp.services.MovieRepository;
 
 @RestController
 @RequestMapping("/api/movies/{movieId}/actors")
+@CrossOrigin(origins = "*")
 public class ActorsInMoviesApiController {
 
 	private MovieRepository mr;
