@@ -13,15 +13,18 @@ import org.junit.Test;
 
 import com.lmig.gfc.wimp.models.Actor;
 import com.lmig.gfc.wimp.services.ActorRepository;
+import com.lmig.gfc.wimp.services.AwardRepository;
 
 public class ActorsApiControllerTests {
 	private ActorsApiController controller;
 	private ActorRepository actorRepo;
+	private AwardRepository awardRepo;
 
 	@Before
 	public void setUp() {
 		actorRepo = mock(ActorRepository.class);
-		controller = new ActorsApiController(actorRepo);
+		awardRepo = mock(AwardRepository.class);
+		controller = new ActorsApiController(actorRepo, awardRepo);
 	}
 
 	@Test
