@@ -65,12 +65,13 @@ public class ActorsApiController {
 	public Actor delete(@PathVariable Long id) {
 		Actor actor = actorRepo.findOne(id);
 
-		for (Award award : actor.getAwards()) {
-			awardRepo.delete(award.getId());
+		if (actor.getAwards() != null) {
+			for (Award award : actor.getAwards()) {
+				awardRepo.delete(award.getId());
+			}
+			actor.getAwards().clear();
 		}
-		actor.getAwards().clear();
 
-		System.out.println("Awards Count: " + actor.getAwards().size());
 		// This call accesses the db and creates a session so the actor can return
 		// actor.getAwards().contains(null);
 		actorRepo.delete(id);
